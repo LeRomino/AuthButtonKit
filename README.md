@@ -8,7 +8,7 @@
     Specially designed for IOS/Android
 </p>
 
-<img align="right" width="215" src="https://github.com/LeRomino/authso_buttons/blob/main/assets/example/buttons.gif?raw=true" alt="Example">
+<img align="right" width="215" src="https://github.com/LeRomino/authso_buttons/blob/main/assets/preview/facebook.png" alt="Example">
 
 ```dart
 import 'package:auth_button_kit/auth_button_kit.dart';
