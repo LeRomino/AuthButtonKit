@@ -55,28 +55,26 @@ class _ExamplePageState extends State<Example> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social Auth Buttons Example'),
+        title: const Text('Auth Buttons Example'),
       ),
       body: IgnorePointer(
         ignoring: brandSelected != null,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AuthButton(
-              onPressed: (m) => print('pressed'),
-              brand: Method.facebook,
-            ),
             AuthButton(
               onPressed: (b) => toogle(b),
               brand: Method.tiktok,
               text: 'Continue with {brand}',
-              backgroundColor: Colors.black,
+              backgroundColor: Theme.of(context).brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.tiktok,
             ),
             AuthMultiButtons(
               onPressed: (b) => toogle(b),
               brands: const [
-                Method.tiktok,
                 Method.google,
                 Method.apple,
               ],
@@ -92,13 +90,18 @@ class _ExamplePageState extends State<Example> {
               brand: Method.custom,
               text: 'Custom button',
               backgroundColor: const Color(0xFF171106),
-              borderColor: const Color(0xFF46c5fb),
+              borderColor: Theme.of(context).brightness == Brightness.light
+                  ? Colors.transparent
+                  : const Color(0xFF46c5fb),
               textColor: const Color(0xFF46c5fb),
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.custom,
               loaderColor: const Color(0xFF46c5fb),
               splashEffect: false,
               customImage: Image.asset('assets/images/Flutter.png'),
+            ),
+            const SizedBox(
+              height: 60,
             ),
           ],
         ),

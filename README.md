@@ -14,7 +14,7 @@
 import 'package:auth_button_kit/auth_button_kit.dart';
 
 AuthButton(
-  onPressed: (m) => print('pressed'),
+  onPressed: (method) => print('you pressed $method'),
   brand: Method.facebook,
 ),
 ```

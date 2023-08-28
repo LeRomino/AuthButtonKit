@@ -1,4 +1,4 @@
-package com.leromino.auth_button_kit_example
+package com.example.example
 
 import io.flutter.embedding.android.FlutterActivity
 
