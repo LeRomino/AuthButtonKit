@@ -1,4 +1,4 @@
-group 'com.leromino.auth_button_kit.auth_button_kit'
+group 'com.leromino.auth_button_kit'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace 'com.leromino.auth_button_kit.auth_button_kit'
+        namespace 'com.leromino.auth_button_kit'
     }
 
     compileSdkVersion 33

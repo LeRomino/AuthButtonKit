@@ -1,4 +1,4 @@
-package com.leromino.auth_button_kit.auth_button_kit
+package com.leromino.auth_button_kit
 
 import androidx.annotation.NonNull
 
