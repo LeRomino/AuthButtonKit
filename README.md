@@ -53,6 +53,7 @@ You can customize the buttons with the following properties:
 | backgroundColor | Color | The background color of the button |
 | borderColor | Color | The border color of the button |
 | textColor | Color | The text color of the button, adapts to contrast with background by default |
+| borderRadius | BorderRadiusGeometry | The border radius of the button |
 | fontFamily | String | The font family of the button |
 | fontWeight | FontWeight | The font weight of the button |
 | showLoader | bool | Show a loader when you want |

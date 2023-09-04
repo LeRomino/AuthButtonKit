@@ -12,6 +12,7 @@ class AuthButton extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.borderColor = Colors.transparent,
     this.textColor = Colors.black,
+    this.borderRadius,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.showLoader = false,
@@ -26,6 +27,7 @@ class AuthButton extends StatelessWidget {
   final Color backgroundColor;
   final Color borderColor;
   final Color textColor;
+  final BorderRadiusGeometry? borderRadius;
   final String? fontFamily;
   final FontWeight? fontWeight;
   final bool showLoader;
@@ -54,7 +56,7 @@ class AuthButton extends StatelessWidget {
             backgroundColor: backgroundColor,
             padding: const EdgeInsets.all(16),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: borderRadius ?? BorderRadius.circular(30),
               side: BorderSide(color: borderColor, width: 1.5),
             ),
           ),

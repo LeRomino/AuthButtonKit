@@ -94,6 +94,7 @@ class _ExamplePageState extends State<Example> {
                   ? Colors.transparent
                   : const Color(0xFF46c5fb),
               textColor: const Color(0xFF46c5fb),
+              borderRadius: BorderRadius.circular(8),
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.custom,
               loaderColor: const Color(0xFF46c5fb),

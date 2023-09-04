@@ -1,3 +1,7 @@
+## [1.0.0] - 2023.09.04
+
+* Added borderRadius property
+
 ## [0.9.5-0.9.9] - 2023.08.28
 
 * Improved readme
