@@ -32,7 +32,7 @@ AuthMultiButtons(
 
 ```AuthButtonKit``` is a Flutter front end package for Android and IOS that allows you to easily create beautiful login buttons.
 The buttons are designed to be beautiful and to please the user, they are specially designed for mobile devices and it is not recommended to use them on computers screens.
-It will automatically adapt the colors of the text and the loader to the background color to ensure a good contrast.
+It will automatically adapt the colors of the logo, the text and the loader to the background color to ensure a good contrast.
 
 ## Usages
 
