@@ -69,6 +69,10 @@ class _ExamplePageState extends State<Example> {
               backgroundColor: Theme.of(context).brightness == Brightness.light
                   ? Colors.black
                   : Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: const BorderSide(color: Colors.transparent),
+              ),
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.tiktok,
             ),
@@ -79,9 +83,14 @@ class _ExamplePageState extends State<Example> {
                 Method.apple,
               ],
               text: 'Sign in with {brand}',
-              borderColor: Theme.of(context).brightness == Brightness.light
-                  ? const Color(0xFFAFBCC7)
-                  : Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? const Color(0xFFAFBCC7)
+                        : Colors.transparent,
+                    width: 1.5),
+              ),
               fontFamily: 'Inter',
               showLoader: brandSelected,
             ),
@@ -90,20 +99,23 @@ class _ExamplePageState extends State<Example> {
               brand: Method.custom,
               text: 'Custom button',
               backgroundColor: const Color(0xFF171106),
-              borderColor: Theme.of(context).brightness == Brightness.light
-                  ? Colors.transparent
-                  : const Color(0xFF46c5fb),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colors.transparent
+                      : const Color(0xFF46c5fb),
+                  width: 1.5,
+                ),
+              ),
               textColor: const Color(0xFF46c5fb),
-              borderRadius: BorderRadius.circular(8),
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.custom,
               loaderColor: const Color(0xFF46c5fb),
               splashEffect: false,
               customImage: Image.asset('assets/images/Flutter.png'),
             ),
-            const SizedBox(
-              height: 60,
-            ),
+            const SizedBox(height: 60),
           ],
         ),
       ),

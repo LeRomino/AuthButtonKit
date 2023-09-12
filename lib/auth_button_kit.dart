@@ -10,9 +10,8 @@ class AuthButton extends StatelessWidget {
     required this.brand,
     this.text = 'Continue with {brand}',
     this.backgroundColor = Colors.white,
-    this.borderColor = Colors.transparent,
+    this.shape,
     this.textColor = Colors.black,
-    this.borderRadius,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.showLoader = false,
@@ -25,9 +24,8 @@ class AuthButton extends StatelessWidget {
   final Method brand;
   final String text;
   final Color backgroundColor;
-  final Color borderColor;
+  final OutlinedBorder? shape;
   final Color textColor;
-  final BorderRadiusGeometry? borderRadius;
   final String? fontFamily;
   final FontWeight? fontWeight;
   final bool showLoader;
@@ -55,10 +53,16 @@ class AuthButton extends StatelessWidget {
             foregroundColor: splashEffect ? Colors.black : backgroundColor,
             backgroundColor: backgroundColor,
             padding: const EdgeInsets.all(16),
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadius ?? BorderRadius.circular(30),
-              side: BorderSide(color: borderColor, width: 1.5),
-            ),
+            shape: shape ??
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(
+                    color: backgroundColor == Colors.white
+                        ? const Color(0xFFAFBCC7)
+                        : Colors.transparent,
+                    width: 1.5,
+                  ),
+                ),
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 7, right: 7),
@@ -130,7 +134,7 @@ class AuthMultiButtons extends StatelessWidget {
     required this.brands,
     this.text = 'Continue with {brand}',
     this.backgroundColor = Colors.white,
-    this.borderColor = Colors.transparent,
+    this.shape,
     this.textColor = Colors.black,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
@@ -143,7 +147,7 @@ class AuthMultiButtons extends StatelessWidget {
   final List<Method> brands;
   final String text;
   final Color backgroundColor;
-  final Color borderColor;
+  final OutlinedBorder? shape;
   final Color textColor;
   final String? fontFamily;
   final FontWeight? fontWeight;
@@ -166,7 +170,7 @@ class AuthMultiButtons extends StatelessWidget {
             brand: brand,
             text: text,
             backgroundColor: backgroundColor,
-            borderColor: borderColor,
+            shape: shape,
             textColor: textColor,
             fontFamily: fontFamily,
             fontWeight: fontWeight,

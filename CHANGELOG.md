@@ -1,3 +1,7 @@
+## [1.1.0] - 2023.09.12
+
+* Added shape property that replaces borderRadius and borderColor
+
 ## [1.0.0] - 2023.09.04
 
 * Added borderRadius property

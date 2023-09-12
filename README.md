@@ -51,9 +51,8 @@ You can customize the buttons with the following properties:
 | brand | Method | The brand of the button (ex: Method.google), you can use a list of brands for AuthMultiButtons |
 | text | String | The text of the button, you can use {brand} to display the brand name |
 | backgroundColor | Color | The background color of the button |
-| borderColor | Color | The border color of the button |
+| shape | OutlinedBorder | The button's shape with options to specify borders (color, width) and corner radius |
 | textColor | Color | The text color of the button, adapts to contrast with background by default |
-| borderRadius | BorderRadiusGeometry | The border radius of the button |
 | fontFamily | String | The font family of the button |
 | fontWeight | FontWeight | The font weight of the button |
 | showLoader | bool | Show a loader when you want |
