@@ -4,34 +4,67 @@ import 'package:flutter/material.dart';
 export 'enum.dart';
 
 class AuthButton extends StatelessWidget {
+  /// A single authentication button.
   const AuthButton({
     super.key,
     required this.onPressed,
     required this.brand,
     this.text = 'Continue with {brand}',
+    this.textCentering = Centering.relative,
+    this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.shape,
-    this.textColor = Colors.black,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.showLoader = false,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
     this.customImage,
+    this.padding =
+        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
+  /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
   final Function(Method) onPressed;
+
+  /// The brand of the button (ex: Method.google)
   final Method brand;
+
+  /// The text of the button, you can use {brand} to display the brand name
   final String text;
-  final Color backgroundColor;
-  final OutlinedBorder? shape;
+
+  /// The layout of the text for different visual choices
+  final Centering textCentering;
+
+  /// The text color of the button, adapts to contrast with background by default
   final Color textColor;
+
+  /// The background color of the button
+  final Color backgroundColor;
+
+  /// The button's shape with options to specify borders (color, width) and corner radius
+  final OutlinedBorder? shape;
+
+  /// The font family of the button
   final String? fontFamily;
+
+  /// The font weight of the button
   final FontWeight? fontWeight;
+
+  /// Show a loader when you want
   final bool showLoader;
+
+  /// The color of the loader, adapts to contrast with background by default
   final Color loaderColor;
+
+  /// Show a splash effect when the button is pressed, does not work with a dark background
   final bool splashEffect;
+
+  /// Change the default logo of the button, works only with AuthButton class and Method.custom
   final Image? customImage;
+
+  /// Manage the space around the button
+  final EdgeInsetsGeometry padding;
 
   String getContrastColor(Color color) {
     return color.red * 0.299 + color.green * 0.587 + color.blue * 0.114 > 186
@@ -44,7 +77,7 @@ class AuthButton extends StatelessWidget {
     final response = getContrastColor(backgroundColor);
 
     return Padding(
-      padding: const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+      padding: padding,
       child: SizedBox(
         width: double.infinity,
         child: TextButton(
@@ -65,7 +98,8 @@ class AuthButton extends StatelessWidget {
                 ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 7, right: 7),
+            padding: EdgeInsets.only(
+                left: 7, right: textCentering == Centering.relative ? 7 : 0),
             child: SizedBox(
               height: 21,
               child: Stack(
@@ -104,19 +138,14 @@ class AuthButton extends StatelessWidget {
                             ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      brand == Method.custom
-                          ? (customImage != null
-                              ? Image(
-                                  image: customImage!.image,
-                                )
-                              : Container())
-                          : Image.asset(
-                              "packages/auth_button_kit/assets/logos${brand.isAdaptive ? "/$response" : ""}/${brand.name}.png"),
-                    ],
-                  ),
+                  brand == Method.custom
+                      ? (customImage != null
+                          ? Image(
+                              image: customImage!.image,
+                            )
+                          : Container())
+                      : Image.asset(
+                          "packages/auth_button_kit/assets/logos${brand.isAdaptive ? "/$response" : ""}/${brand.name}.png"),
                 ],
               ),
             ),
@@ -128,37 +157,63 @@ class AuthButton extends StatelessWidget {
 }
 
 class AuthMultiButtons extends StatelessWidget {
+  /// A group of authentication buttons.
   const AuthMultiButtons({
     super.key,
     required this.onPressed,
     required this.brands,
     this.text = 'Continue with {brand}',
+    this.textCentering = Centering.relative,
+    this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.shape,
-    this.textColor = Colors.black,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.showLoader,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
+    this.padding =
+        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
+  /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
   final Function(Method) onPressed;
+
+  /// The list of brands
   final List<Method> brands;
+
+  /// The text of the button, you can use {brand} to display the brand name
   final String text;
-  final Color backgroundColor;
-  final OutlinedBorder? shape;
+
+  /// The layout of the text for different visual choices
+  final Centering textCentering;
+
+  /// The text color of the button, adapts to contrast with background by default
   final Color textColor;
+
+  /// The background color of the button
+  final Color backgroundColor;
+
+  /// The button's shape with options to specify borders (color, width) and corner radius
+  final OutlinedBorder? shape;
+
+  /// The font family of the button
   final String? fontFamily;
+
+  /// The font weight of the button
   final FontWeight? fontWeight;
+
+  /// Show the loader of a specific button
   final Method? showLoader;
+
+  /// The color of the loader, adapts to contrast with background by default
   final Color loaderColor;
+
+  /// Show a splash effect when the button is pressed, does not work with a dark background
   final bool splashEffect;
 
-  MaterialStateProperty<Color?>? getOverlayColor(BuildContext context) {
-    return MaterialStateProperty.resolveWith((states) => Colors.red
-        .withOpacity(states.contains(MaterialState.pressed) ? 0.5 : 0));
-  }
+  /// Manage the space around the button
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -169,14 +224,15 @@ class AuthMultiButtons extends StatelessWidget {
             onPressed: (b) => onPressed(b),
             brand: brand,
             text: text,
+            textColor: textColor,
             backgroundColor: backgroundColor,
             shape: shape,
-            textColor: textColor,
             fontFamily: fontFamily,
             fontWeight: fontWeight,
             showLoader: showLoader == brand,
             loaderColor: loaderColor,
             splashEffect: splashEffect,
+            padding: padding,
           ),
       ],
     );

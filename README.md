@@ -41,6 +41,8 @@ You have two ways to use this package (like the example above):
 - **AuthButton**: A single button
 - **AuthMultiButtons**: A group of buttons
 
+[Take a look at the example.](https://pub.dev/packages/auth_button_kit/example)
+
 ## Customization
 
 You can customize the buttons with the following properties:
@@ -50,15 +52,17 @@ You can customize the buttons with the following properties:
 | onPressed | Function(Method) | The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter |
 | brand | Method | The brand of the button (ex: Method.google), you can use a list of brands for AuthMultiButtons |
 | text | String | The text of the button, you can use {brand} to display the brand name |
+| textCentering | Centering | The layout of the text for different visual choices |
+| textColor | Color | The text color of the button, adapts to contrast with background by default |
 | backgroundColor | Color | The background color of the button |
 | shape | OutlinedBorder | The button's shape with options to specify borders (color, width) and corner radius |
-| textColor | Color | The text color of the button, adapts to contrast with background by default |
 | fontFamily | String | The font family of the button |
 | fontWeight | FontWeight | The font weight of the button |
 | showLoader | bool | Show a loader when you want |
 | loaderColor | Color | The color of the loader, adapts to contrast with background by default |
 | splashEffect | bool | Show a splash effect when the button is pressed, does not work with a dark background |
 | customImage | Image | Change the default logo of the button, works only with AuthButton class and Method.custom |
+| padding | EdgeInsetsGeometry | Manage the space around the button |
 
 ## Supported brands (to use like Method.brand)
 

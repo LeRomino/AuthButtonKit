@@ -62,6 +62,7 @@ class _ExamplePageState extends State<Example> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Single button ↓
             AuthButton(
               onPressed: (b) => toogle(b),
               brand: Method.tiktok,
@@ -76,6 +77,7 @@ class _ExamplePageState extends State<Example> {
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.tiktok,
             ),
+            // Group of buttons ↓
             AuthMultiButtons(
               onPressed: (b) => toogle(b),
               brands: const [
@@ -94,10 +96,13 @@ class _ExamplePageState extends State<Example> {
               fontFamily: 'Inter',
               showLoader: brandSelected,
             ),
+            // Custom button ↓
             AuthButton(
               onPressed: (b) => toogle(b),
               brand: Method.custom,
-              text: 'Custom button',
+              text: 'Custom',
+              textCentering: Centering.independent,
+              textColor: const Color(0xFF46c5fb),
               backgroundColor: const Color(0xFF171106),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -108,14 +113,15 @@ class _ExamplePageState extends State<Example> {
                   width: 1.5,
                 ),
               ),
-              textColor: const Color(0xFF46c5fb),
               fontFamily: 'Inter',
               showLoader: brandSelected == Method.custom,
               loaderColor: const Color(0xFF46c5fb),
               splashEffect: false,
               customImage: Image.asset('assets/images/Flutter.png'),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 100, vertical: 12),
             ),
-            const SizedBox(height: 60),
+            const SizedBox(height: 50),
           ],
         ),
       ),

@@ -1,3 +1,7 @@
+## [1.1.1] - 2023.09.13
+
+* Added padding and textCentering properties
+
 ## [1.1.0] - 2023.09.12
 
 * Added shape property that replaces borderRadius and borderColor

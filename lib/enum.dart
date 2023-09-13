@@ -19,3 +19,10 @@ enum Method {
   final bool isAdaptive;
   const Method({required this.name, required this.isAdaptive});
 }
+
+enum Centering {
+  relative,
+  independent;
+
+  const Centering();
+}
