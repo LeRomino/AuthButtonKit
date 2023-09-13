@@ -41,7 +41,7 @@ You have two ways to use this package (like the example above):
 - **AuthButton**: A single button
 - **AuthMultiButtons**: A group of buttons
 
-[Take a look at the example.](https://pub.dev/packages/auth_button_kit/example)
+Take a look at [the example](https://github.com/LeRomino/AuthButtonKit/blob/main/example/lib/main.dart).
 
 ## Customization
 
