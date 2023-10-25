@@ -106,10 +106,11 @@ class AuthButton extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        left: customImage != null && brand == Method.custom ||
-                                customImage == null && brand != Method.custom
-                            ? 20
-                            : 0),
+                      left: customImage != null && brand == Method.custom ||
+                              customImage == null && brand != Method.custom
+                          ? 20
+                          : 0,
+                    ),
                     child: Center(
                       child: showLoader
                           ? SizedBox(
@@ -224,6 +225,7 @@ class AuthMultiButtons extends StatelessWidget {
             onPressed: (b) => onPressed(b),
             brand: brand,
             text: text,
+            textCentering: textCentering,
             textColor: textColor,
             backgroundColor: backgroundColor,
             shape: shape,
