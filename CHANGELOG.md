@@ -1,3 +1,7 @@
+## [1.1.2] - 2023.10.25
+
+* Added forgotten parameter
+
 ## [1.1.1] - 2023.09.13
 
 * Added padding and textCentering properties
