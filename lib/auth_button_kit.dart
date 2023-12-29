@@ -16,12 +16,12 @@ class AuthButton extends StatelessWidget {
     this.shape,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
+    this.fontSize = 18,
     this.showLoader = false,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
     this.customImage,
-    this.padding =
-        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.imageHeight = 21,
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
@@ -51,6 +51,9 @@ class AuthButton extends StatelessWidget {
   /// The font weight of the button
   final FontWeight? fontWeight;
 
+  /// The font size of the button text
+  final double? fontSize;
+
   /// Show a loader when you want
   final bool showLoader;
 
@@ -63,13 +66,14 @@ class AuthButton extends StatelessWidget {
   /// Change the default logo of the button, works only with AuthButton class and Method.custom
   final Image? customImage;
 
+  /// The height of the image associated with the button
+  final double imageHeight;
+
   /// Manage the space around the button
   final EdgeInsetsGeometry padding;
 
   String getContrastColor(Color color) {
-    return color.red * 0.299 + color.green * 0.587 + color.blue * 0.114 > 186
-        ? "dark"
-        : "light";
+    return color.red * 0.299 + color.green * 0.587 + color.blue * 0.114 > 186 ? "dark" : "light";
   }
 
   @override
@@ -78,78 +82,79 @@ class AuthButton extends StatelessWidget {
 
     return Padding(
       padding: padding,
-      child: SizedBox(
-        width: double.infinity,
-        child: TextButton(
-          onPressed: () => onPressed(brand),
-          style: TextButton.styleFrom(
-            foregroundColor: splashEffect ? Colors.black : backgroundColor,
-            backgroundColor: backgroundColor,
-            padding: const EdgeInsets.all(16),
-            shape: shape ??
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  side: BorderSide(
-                    color: backgroundColor == Colors.white
-                        ? const Color(0xFFAFBCC7)
-                        : Colors.transparent,
-                    width: 1.5,
-                  ),
+      child: TextButton(
+        onPressed: () => onPressed(brand),
+        style: TextButton.styleFrom(
+          foregroundColor: splashEffect ? Colors.black : backgroundColor,
+          backgroundColor: backgroundColor,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          fixedSize: const Size(double.infinity, 53),
+          shape: shape ??
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+                side: BorderSide(
+                  color: backgroundColor == Colors.white
+                      ? const Color(0xFFAFBCC7)
+                      : Colors.transparent,
+                  width: 1.5,
                 ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(
-                left: 7, right: textCentering == Centering.relative ? 7 : 0),
-            child: SizedBox(
-              height: 21,
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: customImage != null && brand == Method.custom ||
-                              customImage == null && brand != Method.custom
-                          ? 20
-                          : 0,
-                    ),
-                    child: Center(
-                      child: showLoader
-                          ? SizedBox(
-                              width: 21,
-                              child: CircularProgressIndicator(
-                                color: loaderColor == Colors.black
-                                    ? response == "dark"
-                                        ? Colors.black
-                                        : Colors.white
-                                    : loaderColor,
-                              ))
-                          : Text(
-                              text.replaceFirst('{brand}', brand.name),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: textColor == Colors.black
-                                    ? response == "dark"
-                                        ? Colors.black
-                                        : Colors.white
-                                    : textColor,
-                                fontWeight: fontWeight,
-                                fontFamily: fontFamily,
-                              ),
-                            ),
-                    ),
-                  ),
-                  brand == Method.custom
-                      ? (customImage != null
-                          ? Image(
-                              image: customImage!.image,
-                            )
-                          : Container())
-                      : Image.asset(
-                          "packages/auth_button_kit/assets/logos${brand.isAdaptive ? "/$response" : ""}/${brand.name}.png"),
-                ],
               ),
-            ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(left: 7, right: textCentering == Centering.relative ? 7 : 0),
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  left: customImage != null && brand == Method.custom ||
+                          customImage == null && brand != Method.custom
+                      ? imageHeight
+                      : 0,
+                ),
+                child: Center(
+                  child: showLoader
+                      ? SizedBox(
+                          width: 21,
+                          height: 21,
+                          child: CircularProgressIndicator(
+                            color: loaderColor == Colors.black
+                                ? response == "dark"
+                                    ? Colors.black
+                                    : Colors.white
+                                : loaderColor,
+                          ))
+                      : Text(
+                          text.replaceFirst('{brand}', brand.name),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: fontSize, // 18 par defaut
+                            color: textColor == Colors.black
+                                ? response == "dark"
+                                    ? Colors.black
+                                    : Colors.white
+                                : textColor,
+                            fontWeight: fontWeight,
+                            fontFamily: fontFamily,
+                          ),
+                        ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: brand == Method.custom
+                    ? (customImage != null
+                        ? Image(
+                            image: customImage!.image,
+                            height: imageHeight,
+                          )
+                        : Container())
+                    : Image.asset(
+                        "packages/auth_button_kit/assets/logos${brand.isAdaptive ? "/$response" : ""}/${brand.name}.png",
+                        height: imageHeight,
+                      ),
+              ),
+            ],
           ),
         ),
       ),
@@ -173,8 +178,7 @@ class AuthMultiButtons extends StatelessWidget {
     this.showLoader,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
-    this.padding =
-        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.padding = const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter

@@ -25,3 +25,6 @@
 .pub/
 build/
 pubspec.lock
+
+example/android/
+example/ios/

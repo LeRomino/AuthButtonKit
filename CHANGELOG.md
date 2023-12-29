@@ -1,3 +1,7 @@
+## [1.1.3] - 2023.12.29
+
+* Added imageHeight and fontSize
+
 ## [1.1.2] - 2023.10.25
 
 * Added forgotten parameter
