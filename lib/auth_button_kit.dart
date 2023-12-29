@@ -22,6 +22,7 @@ class AuthButton extends StatelessWidget {
     this.splashEffect = true,
     this.customImage,
     this.imageHeight = 21,
+    this.padding = const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
