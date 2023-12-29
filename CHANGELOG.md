@@ -1,3 +1,7 @@
+## [1.1.4] - 2023.12.29
+
+* Dart format
+
 ## [1.1.3] - 2023.12.29
 
 * Added imageHeight and fontSize
