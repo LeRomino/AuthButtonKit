@@ -22,7 +22,8 @@ class AuthButton extends StatelessWidget {
     this.splashEffect = true,
     this.customImage,
     this.imageHeight = 21,
-    this.padding = const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.padding =
+        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
@@ -74,7 +75,9 @@ class AuthButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   String getContrastColor(Color color) {
-    return color.red * 0.299 + color.green * 0.587 + color.blue * 0.114 > 186 ? "dark" : "light";
+    return color.red * 0.299 + color.green * 0.587 + color.blue * 0.114 > 186
+        ? "dark"
+        : "light";
   }
 
   @override
@@ -102,7 +105,8 @@ class AuthButton extends StatelessWidget {
               ),
         ),
         child: Padding(
-          padding: EdgeInsets.only(left: 7, right: textCentering == Centering.relative ? 7 : 0),
+          padding: EdgeInsets.only(
+              left: 7, right: textCentering == Centering.relative ? 7 : 0),
           child: Stack(
             children: [
               Padding(
@@ -179,7 +183,8 @@ class AuthMultiButtons extends StatelessWidget {
     this.showLoader,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
-    this.padding = const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.padding =
+        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
