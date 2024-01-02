@@ -1,3 +1,7 @@
+## [1.1.5] - 2023.01.02
+
+* Added customImage, imageHeight and fontSize for AuthMultiButtons
+
 ## [1.1.4] - 2023.12.29
 
 * Dart format

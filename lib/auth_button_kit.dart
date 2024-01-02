@@ -22,8 +22,7 @@ class AuthButton extends StatelessWidget {
     this.splashEffect = true,
     this.customImage,
     this.imageHeight = 21,
-    this.padding =
-        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.padding = const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
@@ -180,11 +179,13 @@ class AuthMultiButtons extends StatelessWidget {
     this.shape,
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
+    this.fontSize = 18,
     this.showLoader,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
-    this.padding =
-        const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+    this.customImage,
+    this.imageHeight = 21,
+    this.padding = const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
   });
 
   /// The function called when the button is pressed, the brand (ex: Method.google) is passed as a parameter
@@ -214,6 +215,9 @@ class AuthMultiButtons extends StatelessWidget {
   /// The font weight of the button
   final FontWeight? fontWeight;
 
+  /// The font size of the button text
+  final double? fontSize;
+
   /// Show the loader of a specific button
   final Method? showLoader;
 
@@ -222,6 +226,12 @@ class AuthMultiButtons extends StatelessWidget {
 
   /// Show a splash effect when the button is pressed, does not work with a dark background
   final bool splashEffect;
+
+  /// Change the default logo of the button, works only with AuthButton class and Method.custom
+  final Image? customImage;
+
+  /// The height of the image associated with the button
+  final double imageHeight;
 
   /// Manage the space around the button
   final EdgeInsetsGeometry padding;
@@ -241,9 +251,12 @@ class AuthMultiButtons extends StatelessWidget {
             shape: shape,
             fontFamily: fontFamily,
             fontWeight: fontWeight,
+            fontSize: fontSize,
             showLoader: showLoader == brand,
             loaderColor: loaderColor,
             splashEffect: splashEffect,
+            customImage: customImage,
+            imageHeight: imageHeight,
             padding: padding,
           ),
       ],
