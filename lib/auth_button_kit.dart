@@ -17,6 +17,7 @@ class AuthButton extends StatelessWidget {
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.fontSize = 18,
+    this.letterSpacing,
     this.showLoader = false,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
@@ -54,6 +55,9 @@ class AuthButton extends StatelessWidget {
 
   /// The font size of the button text
   final double? fontSize;
+
+  /// The letter spacing of the button text
+  final double? letterSpacing;
 
   /// Show a loader when you want
   final bool showLoader;
@@ -140,6 +144,7 @@ class AuthButton extends StatelessWidget {
                                 : textColor,
                             fontWeight: fontWeight,
                             fontFamily: fontFamily,
+                            letterSpacing: letterSpacing,
                           ),
                         ),
                 ),
@@ -180,6 +185,7 @@ class AuthMultiButtons extends StatelessWidget {
     this.fontFamily,
     this.fontWeight = FontWeight.w500,
     this.fontSize = 18,
+    this.letterSpacing,
     this.showLoader,
     this.loaderColor = Colors.black,
     this.splashEffect = true,
@@ -218,6 +224,9 @@ class AuthMultiButtons extends StatelessWidget {
   /// The font size of the button text
   final double? fontSize;
 
+  /// The letter spacing of the button text
+  final double? letterSpacing;
+
   /// Show the loader of a specific button
   final Method? showLoader;
 
@@ -252,6 +261,7 @@ class AuthMultiButtons extends StatelessWidget {
             fontFamily: fontFamily,
             fontWeight: fontWeight,
             fontSize: fontSize,
+            letterSpacing: letterSpacing,
             showLoader: showLoader == brand,
             loaderColor: loaderColor,
             splashEffect: splashEffect,

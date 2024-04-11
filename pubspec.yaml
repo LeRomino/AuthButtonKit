@@ -1,12 +1,11 @@
 name: auth_button_kit
 description: Awesome custamisable buttons that help you to build a beautiful login page in just a few clicks
-version: 1.1.5
+version: 1.1.6
 homepage: https://github.com/LeRomino/AuthButtonKit
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
   flutter: ">=1.10.0"
-
 
 dependencies:
   flutter:
@@ -18,7 +17,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   plugin:
     platforms:
       android:
